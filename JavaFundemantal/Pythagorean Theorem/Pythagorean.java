@@ -8,6 +8,6 @@ public class Pythagorean {
         return result;
     }
     public static void main(String[] args) {
-        System.out.println(Pythagorean.calculateHypotenuse(4,4));
+        System.out.println(Pythagorean.calculateHypotenuse(4,2));
 }
 }
