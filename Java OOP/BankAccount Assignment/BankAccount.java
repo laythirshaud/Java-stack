@@ -1,49 +1,55 @@
-import java.util.*;
-public class BankAccount{
-    private String account_number;
-    private double checking_balance;
-    private double savings_balance;
+import java.util.Random;
+import java.util.Random;
+public class BankAccount {
+    private String accountnumber;
+    private double checkingbalance;
+    private double savingsbalance;
+    public double getSavingsbalance() {
+        return savingsbalance;
+    }
+    private static  int numberofaccounts;
+    public static  double totalamountofmoney;
 
-    public static int accounts_number=0;
-    public static int total_amount=0;
-    private String lRandom (){
-        String g="";
-        for(int i=0;i<=10;i++){
-            Random r =new Random();
-            g+=r.nextInt(10);
+    public BankAccount( ) {
+        accountnumber=returnaccount();
+        checkingbalance = 0;
+        savingsbalance=0;
+        numberofaccounts++;
+    }
+    private String returnaccount(){
+        Random r=new Random();
+        String number = "";
+        for(int i=0;i<10;i++){
+            number +=Integer.toString(r.nextInt(10)); 
         }
-        return g;
+        System.out.println(number);
+        return number;
     }
-public BankAccount(){
-    this.accounts_number=lRandom;
-    account_number ++;
+    public double getCheckingbalance() {
+        return checkingbalance;
+    }
+    public void setCheckingbalance(double checkingbalance) {
+        this.checkingbalance = checkingbalance;
+    }
+    public void add(double amount){
+        savingsbalance+=amount;
 
-}
-public double getAccountBalance(){
-    return checking_balance;
-} 
-public double getsavingsBalance(){
-    return savings_balance;
-}
 
-public void depositCheck(double amount){
-    this.checking_balance+=amount;
-
-    
-
-}
-public void depositSave(double amount){
-
-    this.savings_balance+=amount;
-
-}
-public withdraw(){
-    if(this.withdraw>total_amount){
-        system.out.println("not have mony");
+    }
+    public String withdraw(double withdraww){
+        if (withdraww>savingsbalance){
+            String error="you dont have mony";
+            return error;
+        }
+        else{
+        savingsbalance-=withdraww;
+        return "you done";
+        }
+    }
+    public void totalMoney(){
+        double x=savingsbalance+checkingbalance;
+        System.out.println(x);
     }
 
-}
-public total_money(){
-    
-}
+
 }
